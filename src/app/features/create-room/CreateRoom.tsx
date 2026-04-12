@@ -91,7 +91,6 @@ export function CreateRoomForm({
   const { additionalCreators, addAdditionalCreator, removeAdditionalCreator } =
     useAdditionalCreators();
   const [federation, setFederation] = useState(true);
-  const [encryption, setEncryption] = useState(false);
   const [knock, setKnock] = useState(false);
   const [advance, setAdvance] = useState(false);
 
@@ -147,7 +146,7 @@ export function CreateRoomForm({
       name: roomName,
       topic: roomTopic || undefined,
       aliasLocalPart: publicRoom ? aliasLocalPart : undefined,
-      encryption: publicRoom ? false : encryption,
+      encryption: false,
       knock: roomKnock,
       allowFederation: federation,
       additionalCreators: allowAdditionalCreators ? additionalCreators : undefined,
@@ -238,25 +237,6 @@ export function CreateRoomForm({
         )}
         {access !== CreateRoomAccess.Public && (
           <>
-            <SequenceCard
-              style={{ padding: config.space.S300 }}
-              variant="SurfaceVariant"
-              direction="Column"
-              gap="500"
-            >
-              <SettingTile
-                title="End-to-End Encryption"
-                description="Once this feature is enabled, it can't be disabled after the room is created."
-                after={
-                  <Switch
-                    variant="Primary"
-                    value={encryption}
-                    onChange={setEncryption}
-                    disabled={disabled}
-                  />
-                }
-              />
-            </SequenceCard>
             {advance && (allowKnock || allowKnockRestricted) && (
               <SequenceCard
                 style={{ padding: config.space.S300 }}
