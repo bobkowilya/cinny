@@ -33,6 +33,26 @@ export const getMxIdLocalPart = (userId: string): string | undefined => matchMxI
 
 export const isUserId = (id: string): boolean => validMxId(id) && id.startsWith('@');
 
+/**
+ * Normalises a user-supplied string to a full Matrix user ID.
+ * Accepts: "username", "@username", "@username:server", full Matrix ID.
+ * Falls back to the server extracted from `currentUserId` (e.g. mx.getUserId()).
+ * Returns undefined if the result is still not a valid Matrix user ID.
+ */
+export const normaliseUserId = (
+  input: string,
+  currentUserId: string
+): string | undefined => {
+  const trimmed = input.trim();
+  if (isUserId(trimmed)) return trimmed;
+  const server = getMxIdServer(currentUserId) ?? '';
+  const localPart =
+    getMxIdLocalPart(trimmed) ?? (trimmed.startsWith('@') ? trimmed.slice(1) : trimmed);
+  if (!server || !localPart) return undefined;
+  const constructed = `@${localPart}:${server}`;
+  return isUserId(constructed) ? constructed : undefined;
+};
+
 export const isRoomId = (id: string): boolean => id.startsWith('!');
 
 export const isRoomAlias = (id: string): boolean => validMxId(id) && id.startsWith('#');

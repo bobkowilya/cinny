@@ -2,7 +2,7 @@ import { Box, Button, color, Icon, Icons, Input, Spinner, Text } from 'folds';
 import React, { FormEventHandler, useCallback, useState } from 'react';
 import { MatrixError, Preset, Visibility } from 'matrix-js-sdk';
 import { useNavigate } from 'react-router-dom';
-import { addRoomIdToMDirect, isUserId } from '../../utils/matrix';
+import { addRoomIdToMDirect, normaliseUserId } from '../../utils/matrix';
 import { useMatrixClient } from '../../hooks/useMatrixClient';
 import { AsyncStatus, useAsyncCallback } from '../../hooks/useAsyncCallback';
 import { ErrorCode } from '../../cs-errorcode';
@@ -47,10 +47,13 @@ export function CreateChat({ defaultUserId }: CreateChatProps) {
 
     const target = evt.target as HTMLFormElement | undefined;
     const userIdInput = target?.userIdInput as HTMLInputElement | undefined;
-    const userId = userIdInput?.value.trim();
+    const rawValue = userIdInput?.value.trim();
 
-    if (!userIdInput || !userId) return;
-    if (!isUserId(userId)) {
+    if (!userIdInput || !rawValue) return;
+
+    const userId = normaliseUserId(rawValue, mx.getUserId() ?? '');
+
+    if (!userId) {
       setInvalidUserId(true);
       return;
     }
@@ -66,10 +69,10 @@ export function CreateChat({ defaultUserId }: CreateChatProps) {
   return (
     <Box as="form" onSubmit={handleSubmit} grow="Yes" direction="Column" gap="500">
       <Box direction="Column" gap="100">
-        <Text size="L400">User ID</Text>
+        <Text size="L400">Username</Text>
         <Input
           defaultValue={defaultUserId}
-          placeholder="@username:server"
+          placeholder="username"
           name="userIdInput"
           variant="SurfaceVariant"
           size="500"

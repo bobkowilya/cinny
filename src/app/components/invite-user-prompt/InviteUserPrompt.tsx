@@ -34,7 +34,7 @@ import { isKeyHotkey } from 'is-hotkey';
 import FocusTrap from 'focus-trap-react';
 import { stopPropagation } from '../../utils/keyboard';
 import { useDirectUsers } from '../../hooks/useDirectUsers';
-import { getMxIdLocalPart, getMxIdServer, isUserId } from '../../utils/matrix';
+import { getMxIdLocalPart, getMxIdServer, isUserId, normaliseUserId } from '../../utils/matrix';
 import { Membership } from '../../../types/matrix/room';
 import { useAsyncSearch, UseAsyncSearchOptions } from '../../hooks/useAsyncSearch';
 import { highlightText, makeHighlightRegex } from '../../plugins/react-custom-html-parser';
@@ -119,10 +119,10 @@ export function InviteUserPrompt({ room, requestClose }: InviteUserProps) {
     if (isUserId(value)) {
       setValidUserId(value);
     } else {
-      setValidUserId(undefined);
-      const term = getMxIdLocalPart(value) ?? (value.startsWith('@') ? value.slice(1) : value);
-      if (term) {
-        search(term);
+      setValidUserId(normaliseUserId(value, mx.getUserId() ?? ''));
+      const localPart = getMxIdLocalPart(value) ?? (value.startsWith('@') ? value.slice(1) : value);
+      if (localPart) {
+        search(localPart);
       } else {
         resetSearch();
       }
@@ -194,7 +194,7 @@ export function InviteUserPrompt({ room, requestClose }: InviteUserProps) {
                       ref={inputRef}
                       onChange={handleSearchChange}
                       onKeyDown={handleKeyDown}
-                      placeholder="@username:server"
+                      placeholder="username"
                       name="userIdInput"
                       variant="Background"
                       disabled={inviting}

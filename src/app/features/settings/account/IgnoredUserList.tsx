@@ -5,7 +5,7 @@ import { SequenceCardStyle } from '../styles.css';
 import { SettingTile } from '../../../components/setting-tile';
 import { useMatrixClient } from '../../../hooks/useMatrixClient';
 import { AsyncStatus, useAsyncCallback } from '../../../hooks/useAsyncCallback';
-import { isUserId } from '../../../utils/matrix';
+import { normaliseUserId } from '../../../utils/matrix';
 import { useIgnoredUsers } from '../../../hooks/useIgnoredUsers';
 import { useAlive } from '../../../hooks/useAlive';
 
@@ -39,10 +39,11 @@ function IgnoreUserInput({ userList }: { userList: string[] }) {
 
     const target = evt.target as HTMLFormElement | undefined;
     const userIdInput = target?.userIdInput as HTMLInputElement | undefined;
-    const uId = userIdInput?.value.trim();
-    if (!uId) return;
+    const rawUId = userIdInput?.value.trim();
+    if (!rawUId) return;
 
-    if (!isUserId(uId)) return;
+    const uId = normaliseUserId(rawUId, mx.getUserId() ?? '');
+    if (!uId) return;
 
     ignore(uId).then(() => {
       if (alive()) {

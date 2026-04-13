@@ -24,7 +24,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { getMxIdLocalPart, getMxIdServer, isUserId } from '../../utils/matrix';
+import { getMxIdLocalPart, getMxIdServer, isUserId, normaliseUserId } from '../../utils/matrix';
 import { useDirectUsers } from '../../hooks/useDirectUsers';
 import { SettingTile } from '../setting-tile';
 import { useMatrixClient } from '../../hooks/useMatrixClient';
@@ -118,11 +118,11 @@ export function AdditionalCreatorInput({
     if (isUserId(creator)) {
       setValidUserId(creator);
     } else {
-      setValidUserId(undefined);
-      const term =
+      setValidUserId(normaliseUserId(creator, mx.getSafeUserId()));
+      const localPart =
         getMxIdLocalPart(creator) ?? (creator.startsWith('@') ? creator.slice(1) : creator);
-      if (term) {
-        search(term);
+      if (localPart) {
+        search(localPart);
       } else {
         resetSearch();
       }
@@ -140,7 +140,7 @@ export function AdditionalCreatorInput({
     if (isKeyHotkey('enter', evt)) {
       evt.preventDefault();
       const creator = evt.currentTarget.value.trim();
-      handleSelectUserId(isUserId(creator) ? creator : suggestionUsers[0]);
+      handleSelectUserId(normaliseUserId(creator, mx.getSafeUserId()) ?? suggestionUsers[0]);
     }
   };
 
@@ -201,7 +201,7 @@ export function AdditionalCreatorInput({
                           variant="Background"
                           radii="300"
                           outlined
-                          placeholder="@username:server"
+                          placeholder="username"
                           onChange={handleCreatorChange}
                           onKeyDown={handleCreatorKeyDown}
                         />
