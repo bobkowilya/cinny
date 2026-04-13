@@ -251,11 +251,13 @@ export function PasswordLoginForm({ defaultUsername, defaultEmail }: PasswordLog
               )}
             </>
           )}
+          {/* Forgot password link hidden: no SMTP server configured
           <Box grow="Yes" shrink="No" justifyContent="End">
             <Text as="span" size="T200" priority="400" align="Right">
               <Link to={getResetPasswordPath(server)}>{t('login.forgot_password')}</Link>
             </Text>
           </Box>
+          */}
         </Box>
       </Box>
       <Button type="submit" variant="Primary" size="500">
