@@ -3,5 +3,106 @@
     "RoomCommon": {
       "changed_room_name": " changed room name"
     }
+  },
+  "auth": {
+    "homeserver": "Homeserver",
+    "homeserver_list": "Homeserver List",
+    "looking_for_homeserver": "Looking for homeserver...",
+    "homeserver_not_found": "Failed to find homeserver.",
+    "homeserver_config_unusable": "Failed to connect. Homeserver configuration found with {{host}} appears unusable.",
+    "homeserver_base_url_invalid": "Failed to connect. Homeserver configuration base_url appears invalid.",
+    "connecting_to": "Connecting to {{url}}",
+    "homeserver_unavailable": "Failed to connect. Either homeserver is unavailable at this moment or does not exist.",
+    "loading_auth_flow": "Loading authentication flow...",
+    "failed_auth_flow": "Failed to get authentication flow information.",
+    "about": "About",
+    "powered_by_matrix": "Powered by Matrix",
+    "or": "OR"
+  },
+  "login": {
+    "title": "Login",
+    "unsupported_homeserver": "This client does not support login on \"{{server}}\" homeserver. Password and SSO based login method not found.",
+    "no_account": "Do not have an account? Register",
+    "username": "Username",
+    "password": "Password",
+    "custom_server_not_allowed": "Login with custom server not allowed by your client instance.",
+    "failed_find_matrix_id": "Failed to find your Matrix ID server.",
+    "invalid_credentials": "Invalid Username or Password.",
+    "account_deactivated": "This account has been deactivated.",
+    "invalid_request": "Failed to login. Part of your request data is invalid.",
+    "rate_limited": "Failed to login. Your login request has been rate-limited by server, Please try after some time.",
+    "unknown_error": "Failed to login. Unknown reason.",
+    "hint": "Hint",
+    "forgot_password": "Forget Password?"
+  },
+  "token_login": {
+    "title": "Token Login",
+    "invalid_token": "Invalid login token.",
+    "account_deactivated": "This account has been deactivated.",
+    "invalid_request": "Failed to login. Part of your request data is invalid.",
+    "rate_limited": "Failed to login. Your login request has been rate-limited by server, Please try after some time.",
+    "unknown_error": "Failed to login. Unknown reason."
+  },
+  "register": {
+    "title": "Register",
+    "registration_disabled": "Registration has been disabled on this homeserver.",
+    "rate_limited": "You have been rate-limited! Please try after some time.",
+    "invalid_request": "Invalid Request! Failed to get any registration options.",
+    "unsupported": "This application does not support registration on this homeserver.",
+    "have_account": "Already have an account? Login",
+    "username": "Username",
+    "username_taken": "This username is already taken.",
+    "username_invalid": "This username contains invalid characters.",
+    "username_reserved": "This username is reserved.",
+    "password": "Password",
+    "weak_password": "Weak Password. Password rejected by server please choosing more strong Password.",
+    "short_password": "Short Password. Password rejected by server please choosing more long Password.",
+    "confirm_password": "Confirm Password",
+    "token": "Registration Token",
+    "token_optional": "Registration Token (Optional)",
+    "email": "Email",
+    "email_optional": "Email (Optional)",
+    "terms": "I accept server Terms and Conditions.",
+    "terms_prefix": "I accept server",
+    "terms_link": "Terms and Conditions",
+    "failed_rate_limited": "Failed to register. Your register request has been rate-limited by server, Please try after some time.",
+    "failed_not_permitted": "Failed to register. The homeserver does not permit registration.",
+    "failed_invalid": "Failed to register. Invalid request.",
+    "failed_unknown": "Failed to register. Unknown Reason."
+  },
+  "reset_password": {
+    "title": "Reset Password",
+    "remember_password": "Remember your password? Login",
+    "email": "Email",
+    "email_hint": "Homeserver {{server}} will send you an email to let you reset your password.",
+    "new_password": "New Password",
+    "confirm_password": "Confirm Password",
+    "success": "Password has been reset successfully. Please login with your new password.",
+    "login": "Login"
+  },
+  "sso": {
+    "continue_with_name": "Continue with {{name}}",
+    "continue_with_sso": "Continue with SSO"
+  },
+  "welcome": {
+    "title": "Welcome to Cinny",
+    "subtitle": "Yet another matrix client.",
+    "source_code": "Source Code",
+    "support": "Support"
+  },
+  "home": {
+    "title": "Home",
+    "mark_as_read": "Mark as Read",
+    "no_rooms": "No Rooms",
+    "no_rooms_desc": "You do not have any rooms yet.",
+    "create_room": "Create Room",
+    "explore_community": "Explore Community Rooms",
+    "join_with_address": "Join with Address",
+    "message_search": "Message Search",
+    "rooms": "Rooms"
+  },
+  "create_room": {
+    "title": "Create Room",
+    "subtitle": "Build a Room for Real-Time Conversations."
   }
 }

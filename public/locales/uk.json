@@ -1,0 +1,108 @@
+{
+  "Organisms": {
+    "RoomCommon": {
+      "changed_room_name": " змінив назву кімнати"
+    }
+  },
+  "auth": {
+    "homeserver": "Сервер",
+    "homeserver_list": "Список серверів",
+    "looking_for_homeserver": "Шукаємо сервер...",
+    "homeserver_not_found": "Сервер не знайдено.",
+    "homeserver_config_unusable": "Помилка з'єднання. Конфігурація сервера {{host}} недійсна.",
+    "homeserver_base_url_invalid": "Помилка з'єднання. Неправильний base_url сервера.",
+    "connecting_to": "З'єднання з {{url}}",
+    "homeserver_unavailable": "Сервер недоступний або не існує.",
+    "loading_auth_flow": "Завантаження...",
+    "failed_auth_flow": "Помилка авторизації.",
+    "about": "Про застосунок",
+    "powered_by_matrix": "На базі Matrix",
+    "or": "АБО"
+  },
+  "login": {
+    "title": "Вхід",
+    "unsupported_homeserver": "Клієнт не підтримує вхід на сервері \"{{server}}\". Методи входу не знайдено.",
+    "no_account": "Немає акаунту? Зареєструватись",
+    "username": "Ім'я користувача",
+    "password": "Пароль",
+    "custom_server_not_allowed": "Вхід через інший сервер заборонено.",
+    "failed_find_matrix_id": "Сервер Matrix ID не знайдено.",
+    "invalid_credentials": "Невірний логін або пароль.",
+    "account_deactivated": "Цей акаунт деактивовано.",
+    "invalid_request": "Помилка входу. Невірні дані запиту.",
+    "rate_limited": "Забагато спроб. Спробуйте пізніше.",
+    "unknown_error": "Помилка входу. Невідома причина.",
+    "hint": "Підказка",
+    "forgot_password": "Забули пароль?"
+  },
+  "token_login": {
+    "title": "Вхід за токеном",
+    "invalid_token": "Невірний токен входу.",
+    "account_deactivated": "Цей акаунт деактивовано.",
+    "invalid_request": "Помилка входу. Невірні дані запиту.",
+    "rate_limited": "Забагато спроб. Спробуйте пізніше.",
+    "unknown_error": "Помилка входу. Невідома причина."
+  },
+  "register": {
+    "title": "Реєстрація",
+    "registration_disabled": "Реєстрація вимкнена на цьому сервері.",
+    "rate_limited": "Забагато спроб. Спробуйте пізніше.",
+    "invalid_request": "Помилка. Не вдалось отримати параметри реєстрації.",
+    "unsupported": "Реєстрація на цьому сервері не підтримується.",
+    "have_account": "Вже є акаунт? Увійти",
+    "username": "Ім'я користувача",
+    "username_taken": "Це ім'я вже зайнято.",
+    "username_invalid": "Ім'я містить недозволені символи.",
+    "username_reserved": "Це ім'я зарезервовано.",
+    "password": "Пароль",
+    "weak_password": "Слабкий пароль. Оберіть надійніший.",
+    "short_password": "Пароль надто короткий.",
+    "confirm_password": "Підтвердіть пароль",
+    "token": "Токен реєстрації",
+    "token_optional": "Токен реєстрації (необов'язково)",
+    "email": "Email",
+    "email_optional": "Email (необов'язково)",
+    "terms": "Приймаю умови використання сервера.",
+    "terms_prefix": "Приймаю",
+    "terms_link": "умови використання сервера",
+    "failed_rate_limited": "Помилка реєстрації. Забагато спроб, спробуйте пізніше.",
+    "failed_not_permitted": "Реєстрація на сервері заборонена.",
+    "failed_invalid": "Помилка реєстрації. Невірний запит.",
+    "failed_unknown": "Помилка реєстрації. Невідома причина."
+  },
+  "reset_password": {
+    "title": "Скидання пароля",
+    "remember_password": "Згадали пароль? Увійти",
+    "email": "Email",
+    "email_hint": "Сервер {{server}} надішле вам листа для скидання пароля.",
+    "new_password": "Новий пароль",
+    "confirm_password": "Підтвердіть пароль",
+    "success": "Пароль успішно змінено. Увійдіть з новим паролем.",
+    "login": "Увійти"
+  },
+  "sso": {
+    "continue_with_name": "Продовжити через {{name}}",
+    "continue_with_sso": "Продовжити через SSO"
+  },
+  "welcome": {
+    "title": "Ласкаво просимо",
+    "subtitle": "Ваш корпоративний месенджер",
+    "source_code": "Код",
+    "support": "Підтримка"
+  },
+  "home": {
+    "title": "Головна",
+    "mark_as_read": "Позначити прочитаним",
+    "no_rooms": "Немає кімнат",
+    "no_rooms_desc": "У вас ще немає жодної кімнати.",
+    "create_room": "Створити кімнату",
+    "explore_community": "Публічні кімнати",
+    "join_with_address": "Увійти за адресою",
+    "message_search": "Пошук",
+    "rooms": "Кімнати"
+  },
+  "create_room": {
+    "title": "Нова кімната",
+    "subtitle": "Створіть кімнату для спілкування."
+  }
+}
