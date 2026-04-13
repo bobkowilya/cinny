@@ -76,7 +76,6 @@ type PasswordResetFormProps = {
 };
 export function PasswordResetForm({ defaultEmail }: PasswordResetFormProps) {
   const { t } = useTranslation();
-  const server = useAuthServer();
 
   const serverDiscovery = useAutoDiscoveryInfo();
   const baseUrl = serverDiscovery['m.homeserver'].base_url;
@@ -168,7 +167,7 @@ export function PasswordResetForm({ defaultEmail }: PasswordResetFormProps) {
   return (
     <Box as="form" onSubmit={handleSubmit} direction="Inherit" gap="400">
       <Text size="T300" priority="400">
-        {t('reset_password.email_hint', { server })}
+        {t('reset_password.email_hint')}
       </Text>
       <Box direction="Column" gap="100">
         <Text as="label" size="L400" priority="300">
